@@ -19,3 +19,6 @@ url = 'http://python.org/'  # προσδιορισμός του url
 url=input("give url:") #ζητάει από τον χρήστη ένα URL
 
 response = requests.get(url)
+
+with requests.get(url) as response: 
+    print(response.text)
