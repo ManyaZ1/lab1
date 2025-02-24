@@ -31,6 +31,6 @@ with requests.get(url) as response:
     #(γ) το όνομα κάθε cookie και για πόσο διάστημα θα είναι έγκυρο.
     for cookie in response.cookies:
         if cookie.expires:
-            dt = datetime.fromtimestamp(cookie.expires, tz=timezone.utc)
+            dt = datetime.fromtimestamp(cookie.expires, tz=timezone.utc) #from utc (second form unix epoch) to datetime (readable format)
             #print(dt)  # Convert to readable UTC time
             print(f"Name: {cookie.name}, Expires: {dt}")
