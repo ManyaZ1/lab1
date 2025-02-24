@@ -1,4 +1,5 @@
 import requests  # εισαγωγή της βιβλιοθήκης
+from datetime import datetime, timezone
 
 def more(text):
     count = 0
@@ -9,10 +10,6 @@ def more(text):
             reply = input('Show more (y/n)? ')
             if reply == 'n':
                 break
-
-# with requests.get(url) as response:  # το αντικείμενο response
-#     html = response.text
-#     more(html)
 
 url=input("give url:") #ζητάει από τον χρήστη ένα URL
 
@@ -33,4 +30,7 @@ with requests.get(url) as response:
     print(f"\nHas cookies: {'Set-Cookie' in response.headers}")
     #(γ) το όνομα κάθε cookie και για πόσο διάστημα θα είναι έγκυρο.
     for cookie in response.cookies:
-        print(f"Name: {cookie.name}, Expires:")
+        if cookie.expires:
+            dt = datetime.fromtimestamp(cookie.expires, tz=timezone.utc)
+            #print(dt)  # Convert to readable UTC time
+            print(f"Name: {cookie.name}, Expires: {dt}")
