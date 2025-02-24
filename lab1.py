@@ -17,5 +17,6 @@ url = 'http://python.org/'  # προσδιορισμός του url
 #     more(html)
 
 url=input("give url:") #ζητάει από τον χρήστη ένα URL
-
+if not url.startswith('https://'):
+    url='https://'+url
 response = requests.get(url)
