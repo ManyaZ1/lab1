@@ -10,8 +10,6 @@ def more(text):
             if reply == 'n':
                 break
 
-url = 'http://python.org/'  # προσδιορισμός του url
-
 # with requests.get(url) as response:  # το αντικείμενο response
 #     html = response.text
 #     more(html)
@@ -22,6 +20,11 @@ if not url.startswith('https://'):
     url='https://'+url
 
 print(url)
-with requests.get(url) as response: 
-    print(response.text)
+#with requests.get(url) as response: 
+    #print(response.text)
 
+#πραγματοποιεί ένα αίτημα HTTP σε αυτό το URL
+with requests.get(url) as response:
+    print(f"\n=============== HTTP Headers====================\n")
+    for key in response.headers:
+        print(f"Name: {key}, Value: {response.headers[key]}")
