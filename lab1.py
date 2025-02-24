@@ -20,9 +20,8 @@ if not url.startswith('https://'):
     url='https://'+url
 
 print(url)
-#with requests.get(url) as response: 
-    #print(response.text)
 
+#erotima1
 #πραγματοποιεί ένα αίτημα HTTP σε αυτό το URL
 with requests.get(url) as response:
     print(f"\n=============== HTTP Headers====================\n")
